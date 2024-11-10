@@ -3,10 +3,10 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 
-const RESOURCES = {"flutter_bootstrap.js": "f40f528fcb07336b6c129aafedb45757",
+const RESOURCES = {"flutter_bootstrap.js": "5b81593eaf584c5ca6e610331e982ee8",
 "version.json": "af19334f1598ab43bac3065cb0665588",
-"index.html": "73f2adfe9e085b4ab707ff118646955d",
-"/": "73f2adfe9e085b4ab707ff118646955d",
+"index.html": "28ad123487653a1af783c09c254595e0",
+"/": "28ad123487653a1af783c09c254595e0",
 "main.dart.js": "ce87432504d7ecb24e1ae95d18bb741f",
 "flutter.js": "f393d3c16b631f36852323de8e583132",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
@@ -14,7 +14,7 @@ const RESOURCES = {"flutter_bootstrap.js": "f40f528fcb07336b6c129aafedb45757",
 "icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
 "icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
-"manifest.json": "a7651daa3f44706ccb3ab7954dccf1cc",
+"manifest.json": "d9780f19cdd9a771d2c24a1c4740a313",
 "assets/AssetManifest.json": "16d6a77b30f5c69ab523e78703b4cb73",
 "assets/assert/image/silverCoin.jpg": "93c203ead11f29c8a9370b3d93af97f5",
 "assets/assert/image/2.jpg": "03273dd72a065c0d0183e8c95dbc26e8",
