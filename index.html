@@ -34,5 +34,10 @@
 </head>
 <body>
 <script async src="flutter_bootstrap.js"></script>
+<script>
+    const serviceWorkerActivation = navigator.serviceWorker.register(
+    "flutter_service_worker.js?v=" + serviceWorkerVersion
+);
+</script>
 </body>
 </html>
