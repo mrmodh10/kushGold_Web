@@ -26,6 +26,8 @@
             align-items: center;
             z-index: 9999;
             transition: opacity 0.3s ease;
+            opacity: 0; /* Hide initially */
+            pointer-events: none; /* Prevent interaction while hidden */
         }
 
         .logo {
@@ -98,12 +100,15 @@
         ];
 
         let currentTextIndex = 0;
+        const loader = document.getElementById('loader');
         const textDisplay = document.getElementById('text-display');
 
         // Show the text now that DOM is ready
         setTimeout(() => {
+            loader.style.opacity = 1;
+            loader.style.pointerEvents = 'auto'; // Re-enable interaction if needed
             textDisplay.style.opacity = 1;
-        }, 1000);
+        }, 500);
 
 <!--        function changeText() {-->
 <!--            textDisplay.style.opacity = 0;-->
