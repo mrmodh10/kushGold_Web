@@ -80,7 +80,7 @@
 <body>
 <!-- Loading screen shown before Flutter renders -->
 <div id="loader">
-    <div class="loading-text" id="text-display">Bringing brilliance to your screen…</div>
+    <div class="loading-text" id="text-display">Not just luxury. It's Kush Gold…</div>
     <div class="bar-loader">
         <div class="bar"></div>
     </div>
@@ -92,14 +92,14 @@
 <!-- Flutter App -->
 <script>
     const texts = [
-        "Bringing brilliance to your screen…",
+        "Not just luxury. It's Kush Gold…",
         "Shining with the finest gold…",
         "The power of platinum at your fingertips…",
         "Discover the elegance of silver and palladium…"
     ];
 
     let currentTextIndex = 0;
-    const loader = document.getElementById('loader');
+    const customLoader = document.getElementById('loader');
     const textDisplay = document.getElementById('text-display');
     let flutterRendered = false;
 
@@ -107,11 +107,11 @@
     window.addEventListener('flutter-first-frame', function () {
         flutterRendered = true;
 
-        if (loader) {
-            loader.style.transition = 'opacity 0.3s ease';
-            loader.style.opacity = 0;
+        if (customLoader) {
+            customLoader.style.transition = 'opacity 0.3s ease';
+            customLoader.style.opacity = 0;
             setTimeout(() => {
-                loader.remove();
+                customLoader.remove();
                 clearInterval(textInterval); // Only needed if text cycling is re-enabled
             }, 300);
         }
@@ -120,8 +120,8 @@
     // Delay showing loader and text only if Flutter hasn't rendered yet
     setTimeout(() => {
         if (!flutterRendered) {
-            loader.style.opacity = 1;
-            loader.style.pointerEvents = 'auto';
+            customLoader.style.opacity = 1;
+            customLoader.style.pointerEvents = 'auto';
             textDisplay.style.opacity = 1;
         }
     }, 500);
