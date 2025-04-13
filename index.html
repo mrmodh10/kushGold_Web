@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta content="IE=Edge" http-equiv="X-UA-Compatible">
     <meta content="A new Flutter project." name="description">
-    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="mobile-web-app-capable">
     <meta content="black" name="apple-mobile-web-app-status-bar-style">
     <meta content="kushgold_web" name="apple-mobile-web-app-title">
     <link href="icons/Icon-192.png" rel="apple-touch-icon">
@@ -51,14 +51,14 @@
         }
 
         .loading-text {
-            font-family: 'Segoe UI', Roboto, sans-serif;
-            font-size: 16px;
-            color: #6B4F31; /* brown color */
-            letter-spacing: 0.5px;
-            opacity: 1;
-            transition: opacity 0.8s ease;
-            padding-bottom: 10px; /* Added bottom padding */
-        }
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    font-size: 16px;
+    color: #6B4F31;
+    letter-spacing: 0.5px;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.8s ease;
+    padding-bottom: 10px;
+}
 
         @keyframes slide {
             0% {
@@ -89,40 +89,45 @@
 
 <!-- Flutter App -->
 <script>
-    // Define the array of texts
-    const texts = [
-        "Bringing brilliance to your screen…",
-        "Shining with the finest gold…",
-        "The power of platinum at your fingertips…",
-        "Discover the elegance of silver and palladium…"
-    ];
+    document.addEventListener('DOMContentLoaded', function () {
+        const texts = [
+            "Bringing brilliance to your screen…",
+            "Shining with the finest gold…",
+            "The power of platinum at your fingertips…",
+            "Discover the elegance of silver and palladium…"
+        ];
 
-    let currentTextIndex = 0;
-    const textDisplay = document.getElementById('text-display');
+        let currentTextIndex = 0;
+        const textDisplay = document.getElementById('text-display');
 
-    // Function to update the text with animation
-    function changeText() {
-        textDisplay.style.opacity = 0; // Fade out
+        // Show the text now that DOM is ready
         setTimeout(() => {
-            textDisplay.textContent = texts[currentTextIndex]; // Change text
-            currentTextIndex = (currentTextIndex + 1) % texts.length; // Cycle through texts
-            textDisplay.style.opacity = 1; // Fade in
-        }, 700); // Wait for fade-out to complete before changing text
-    }
+            textDisplay.style.opacity = 1;
+        }, 1000);
 
-    // Change the text every 800 milliseconds
-    setInterval(changeText, 1500);
+<!--        function changeText() {-->
+<!--            textDisplay.style.opacity = 0;-->
+<!--            setTimeout(() => {-->
+<!--                textDisplay.textContent = texts[currentTextIndex];-->
+<!--                currentTextIndex = (currentTextIndex + 1) % texts.length;-->
+<!--                textDisplay.style.opacity = 1;-->
+<!--            }, 1000);-->
+<!--        }-->
 
-    // Ensure the loader doesn't disappear prematurely
-    window.addEventListener('flutter-first-frame', function () {
-        const loader = document.getElementById('loader');
-        if (loader) {
-            loader.style.transition = 'opacity 0.3s ease'; // Add smooth transition for removal
-            loader.style.opacity = 0; // Fade out the loader
-            setTimeout(() => {
-                loader.remove(); // Remove the loader from the DOM after fading out
-            }, 300); // Wait for the fade-out to complete
-        }
+<!--        const textInterval = setInterval(changeText, 2000);-->
+
+        // Remove loader when Flutter has rendered
+        window.addEventListener('flutter-first-frame', function () {
+            const loader = document.getElementById('loader');
+            if (loader) {
+                loader.style.transition = 'opacity 0.3s ease';
+                loader.style.opacity = 0;
+                setTimeout(() => {
+                    loader.remove();
+                    clearInterval(textInterval);
+                }, 300);
+            }
+        });
     });
 </script>
 <script async src="flutter_bootstrap.js"></script>
